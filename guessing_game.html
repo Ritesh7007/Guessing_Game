@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Guessing Game</h2>
+  
+
+  <script>
+    let secret = Math.floor(Math.random() * 10) + 1;
+    let guess;
+    let attempts = 0;
+    let maxAttempts = 5;
+    let won = false;
+
+    do 
+    {
+        guess = prompt("Guess a number between 1 and 10:");
+         
+       if(guess == null)
+       {
+        alert("Game excited.The number was " + secret);
+        break;
+       }
+
+       guess = parseInt(guess);
+       attempts ++;
+        
+        
+        
+        if( guess == secret)
+        {
+            alert("correct! You win");
+        }
+        else if (guess > secret)
+        {
+            alert("Too High! Try again.");
+        }
+        else 
+        {
+            alert("Too Low! Try again.");
+        }
+    } while (attempts < maxAttempts);
+
+    if (!won && attempts >= maxAttempts)
+    {
+        alert(" Out of attempts! you lose. the number was " + secret);
+    }
+
+    
+    
+  </script>
+</body>
+</html>
